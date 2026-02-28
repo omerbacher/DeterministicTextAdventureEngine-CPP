@@ -1,0 +1,15 @@
+screens= adv-world_01.screen|adv-world_02.screen|adv-world_03.screen
+time= 0 event= ScreenChange screenName= adv-world_01.screen
+time= 38 event= Riddle riddleId= 2 riddleText= What does this print? for(int i=0;i<3;i++) cout << i;	 answer= 012 result= Solved
+time= 69 event= Riddle riddleId= 3 riddleText= What's the output? bool a = true; bool b = false; cout << (a && b); answer= 0 result= Solved
+time= 131 event= Riddle riddleId= 1 riddleText= What's the output? int x = 3; cout << x + ++x; answer= 7 result= Solved
+time= 441 event= ScreenChange screenName= adv-world_02.screen
+time= 621 event= Riddle riddleId= 6 riddleText= What's the output? int arr[] = {1,2,3}; cout << arr[1]; answer= 2 result= Solved
+time= 750 event= Riddle riddleId= 4 riddleText= What is the output? cout << 7 / 2; answer= 3 result= Solved
+time= 1218 event= Riddle riddleId= 5 riddleText= What does this print? string s = "Hello"; cout << s.length(); answer= 5 result= Solved
+time= 1373 event= ScreenChange screenName= adv-world_03.screen
+time= 1388 event= Riddle riddleId= 7 riddleText= What's the output? cout << (5 > 3 ? 10 : 20); answer= 10 result= Solved
+time= 1565 event= Riddle riddleId= 8 riddleText= what has keys but can't open locks? answer= KEYBOARD result= Solved
+time= 1712 event= Riddle riddleId= 9 riddleText= what has a head and a tail but no body? answer= COIN result= Solved
+time= 1979 event= Riddle riddleId= 10 riddleText= who will win the world cup 2026? answer= ARGENTINA result= Solved
+time= 2114 event= GameFinished score1= 600 score2= 400

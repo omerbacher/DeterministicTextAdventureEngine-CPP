@@ -1,0 +1,52 @@
+1
+What's the output?\nint x = 3;\ncout << x + ++x;
+7
+Remember:++x increments BEFORE use	
+2			
+What does this print?\nfor(int i=0;i<3;i++) cout << i;	
+012
+Remember:Loop just like C
+3
+What's the output?\nbool a = true;\nbool b = false;\ncout << (a && b);
+0
+Remember:the outcome can be in numbers
+4
+What is the output?\ncout << 7 / 2;
+3
+Remember:how Divide works..?
+5
+What does this print?\nstring s = "Hello";\ncout << s.length();
+5
+Remember:just like in C
+6
+What's the output?\nint arr[] = {1,2,3};\ncout << arr[1];
+2
+Remember:you start counting from 0
+7
+What's the output?\ncout << (5 > 3 ? 10 : 20);
+10
+Remember:if/else outcome..
+8
+what has keys but can't open locks?
+Keyboard
+you are using it right now...
+9
+what has a head and a tail but no body?
+Coin
+possibility of 50% to guess it
+10
+who will win the world cup 2026?
+Argentina
+They've won in 2022...
+11
+How much will you give us on this project?
+100
+please we worked really hard! :)
+12
+Quick Math : 1*2*3*4*5*6
+720
+Really? Boaz will be disapoointed
+13
+what is the sum of numbers between 1-100
+5050
+50 precent both players you will get this
