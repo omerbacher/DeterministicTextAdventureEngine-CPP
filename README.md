@@ -1,18 +1,23 @@
 # Deterministic Text Adventure Engine (C++)
 
-> A deterministic C++ game engine designed around strict state control,
+![C++17](https://img.shields.io/badge/C%2B%2B-17-blue)
+![Deterministic Engine](https://img.shields.io/badge/Engine-Deterministic-green)
+![Replay Validation](https://img.shields.io/badge/Replay-Validated-brightgreen)
+![State Machine](https://img.shields.io/badge/Architecture-State%20Machine-orange)
+![OOP Design](https://img.shields.io/badge/Design-OOP-purple)
+
+> A deterministic C++ runtime engine designed around strict state control,
 replay validation, and polymorphic execution strategies.
 
 <p align="center">
   <img src="docs/Animation.gif" width="800"/>
 </p>
 
-
 ---
 
 ## Overview
 
-This project implements a console-based deterministic game engine focused on architectural clarity and strict state control.
+This project implements a console-based deterministic simulation engine focused on architectural clarity and strict state control.
 
 Its primary goal is not gameplay complexity, but deterministic correctness and reproducible execution across runtime modes.
 
@@ -43,23 +48,25 @@ adv-world.exe -save
 adv-world.exe -load [-silent]
 ```
 
+
 ### Normal Mode
-Runs the interactive simulation as a standard console game.
+Runs the interactive simulation as a standard console execution.
 
 ### Save Mode
 - Records deterministic session input and significant events  
-- Produces:
-  - `adv-world.steps`
-  - `adv-world.result`
+- Writes:
+  - `adv-world.steps` (minimal deterministic input stream)
+  - `adv-world.result` (expected final outcome summary)
 
 ### Load Mode
-- Replays recorded input without accepting new interaction  
-- Reconstructs identical state transitions  
+- Reads `adv-world.steps`
+- Reconstructs identical state transitions
+- In silent mode, compares actual results against `adv-world.result`
 
 ### Silent Mode
 - Executes without rendering  
 - Validates actual results against expected output  
-- Functions as a lightweight automated validation mechanism  
+- Functions as a lightweight deterministic validation mechanism  
 
 ---
 
@@ -83,6 +90,23 @@ The simulation logic remains a single source of truth across all execution modes
 
 ---
 
+## Runtime Architecture Diagram
+
+<p align="center">
+  <img src="docs/deterministic-engine-architecture.png" width="680" style="max-width:100%;"/>
+</p>
+
+### Save / Replay Flow Clarification
+
+- **Save mode** records the minimal deterministic input stream into `*.steps`
+- It also writes an expected summary into `*.result`
+- **Replay mode** reads `*.steps`, reconstructs the state evolution
+- In silent mode, it compares the computed outcome against `*.result`
+
+Replay execution never derives behavior from `.result` — it only validates against it.
+
+---
+
 ## Dynamic Room Loading
 
 Rooms are parsed from structured `.screen` files including:
@@ -99,7 +123,11 @@ Malformed input cannot corrupt runtime state.
 
 ## Engineering Challenges Addressed
 
+This project intentionally focused on architectural complexity rather than gameplay complexity.
+The following challenges were central to its design:
+
 ### Deterministic Replay Guarantee
+
 To ensure identical replay behavior:
 
 - Strict control over state mutation  
@@ -108,6 +136,7 @@ To ensure identical replay behavior:
 - Prevention of hidden non-deterministic behavior  
 
 ### Execution Strategy Isolation
+
 Multiple runtime behaviors (normal, save, load, silent) are supported while preserving a single simulation engine core.
 
 This required explicit separation between:
@@ -134,11 +163,12 @@ This required explicit separation between:
 
 ## Project Structure
 
-src/      → Core engine implementation  
-docs/     → File format documentation  
+```
+src/      → Core engine implementation
+docs/     → Architecture diagrams & file format documentation
 README.md → Project overview
+```
 
----
 ## Build
 
 - Requires: Windows x64, Visual Studio 2022  
@@ -152,6 +182,6 @@ All files are read from and written to the current working directory.
 
 ## Summary
 
-This project demonstrates how deterministic simulation architecture can be applied to a state-driven engine with replay validation and execution-mode polymorphism.
+This project demonstrates how deterministic runtime architecture can be applied to a state-driven engine with replay validation and execution-mode polymorphism.
 
 It serves as a focused exercise in system design, reproducibility, and clean runtime separation in modern C++.
